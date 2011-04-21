@@ -1,0 +1,465 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B28F0A711360FC13002BB61F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28F0A701360FC13002BB61F /* UIKit.framework */; };
+		B28F0A731360FC13002BB61F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28F0A721360FC13002BB61F /* Foundation.framework */; };
+		B28F0A751360FC13002BB61F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28F0A741360FC13002BB61F /* CoreGraphics.framework */; };
+		B28F0A7B1360FC13002BB61F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B28F0A791360FC13002BB61F /* InfoPlist.strings */; };
+		B28F0A7E1360FC13002BB61F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B28F0A7D1360FC13002BB61F /* main.m */; };
+		B28F0A811360FC13002BB61F /* PongVilleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B28F0A801360FC13002BB61F /* PongVilleAppDelegate.m */; };
+		B28F0A841360FC13002BB61F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B28F0A821360FC13002BB61F /* MainWindow.xib */; };
+		B28F0A871360FC14002BB61F /* PongVilleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B28F0A861360FC14002BB61F /* PongVilleViewController.m */; };
+		B28F0A8A1360FC14002BB61F /* PongVilleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B28F0A881360FC14002BB61F /* PongVilleViewController.xib */; };
+		B28F0A911360FC14002BB61F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28F0A701360FC13002BB61F /* UIKit.framework */; };
+		B28F0A921360FC14002BB61F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28F0A721360FC13002BB61F /* Foundation.framework */; };
+		B28F0A931360FC14002BB61F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28F0A741360FC13002BB61F /* CoreGraphics.framework */; };
+		B28F0A9B1360FC14002BB61F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B28F0A991360FC14002BB61F /* InfoPlist.strings */; };
+		B28F0A9E1360FC14002BB61F /* PongVilleTests.h in Resources */ = {isa = PBXBuildFile; fileRef = B28F0A9D1360FC14002BB61F /* PongVilleTests.h */; };
+		B28F0AA01360FC14002BB61F /* PongVilleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B28F0A9F1360FC14002BB61F /* PongVilleTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B28F0A941360FC14002BB61F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B28F0A631360FC13002BB61F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B28F0A6B1360FC13002BB61F;
+			remoteInfo = PongVille;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B28F0A6C1360FC13002BB61F /* PongVille.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PongVille.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B28F0A701360FC13002BB61F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B28F0A721360FC13002BB61F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B28F0A741360FC13002BB61F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B28F0A781360FC13002BB61F /* PongVille-Info.plist */ = {isa = PBXFileReference; path = "PongVille-Info.plist"; sourceTree = "<group>"; };
+		B28F0A7A1360FC13002BB61F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B28F0A7C1360FC13002BB61F /* PongVille-Prefix.pch */ = {isa = PBXFileReference; path = "PongVille-Prefix.pch"; sourceTree = "<group>"; };
+		B28F0A7D1360FC13002BB61F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B28F0A7F1360FC13002BB61F /* PongVilleAppDelegate.h */ = {isa = PBXFileReference; path = PongVilleAppDelegate.h; sourceTree = "<group>"; };
+		B28F0A801360FC13002BB61F /* PongVilleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PongVilleAppDelegate.m; sourceTree = "<group>"; };
+		B28F0A831360FC13002BB61F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		B28F0A851360FC14002BB61F /* PongVilleViewController.h */ = {isa = PBXFileReference; path = PongVilleViewController.h; sourceTree = "<group>"; };
+		B28F0A861360FC14002BB61F /* PongVilleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PongVilleViewController.m; sourceTree = "<group>"; };
+		B28F0A891360FC14002BB61F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PongVilleViewController.xib; sourceTree = "<group>"; };
+		B28F0A901360FC14002BB61F /* PongVilleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PongVilleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B28F0A981360FC14002BB61F /* PongVilleTests-Info.plist */ = {isa = PBXFileReference; path = "PongVilleTests-Info.plist"; sourceTree = "<group>"; };
+		B28F0A9A1360FC14002BB61F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B28F0A9C1360FC14002BB61F /* PongVilleTests-Prefix.pch */ = {isa = PBXFileReference; path = "PongVilleTests-Prefix.pch"; sourceTree = "<group>"; };
+		B28F0A9D1360FC14002BB61F /* PongVilleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PongVilleTests.h; sourceTree = "<group>"; };
+		B28F0A9F1360FC14002BB61F /* PongVilleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PongVilleTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B28F0A691360FC13002BB61F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B28F0A711360FC13002BB61F /* UIKit.framework in Frameworks */,
+				B28F0A731360FC13002BB61F /* Foundation.framework in Frameworks */,
+				B28F0A751360FC13002BB61F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B28F0A8C1360FC14002BB61F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B28F0A911360FC14002BB61F /* UIKit.framework in Frameworks */,
+				B28F0A921360FC14002BB61F /* Foundation.framework in Frameworks */,
+				B28F0A931360FC14002BB61F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B28F0A611360FC13002BB61F = {
+			isa = PBXGroup;
+			children = (
+				B28F0A761360FC13002BB61F /* PongVille */,
+				B28F0A961360FC14002BB61F /* PongVilleTests */,
+				B28F0A6F1360FC13002BB61F /* Frameworks */,
+				B28F0A6D1360FC13002BB61F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B28F0A6D1360FC13002BB61F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B28F0A6C1360FC13002BB61F /* PongVille.app */,
+				B28F0A901360FC14002BB61F /* PongVilleTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B28F0A6F1360FC13002BB61F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B28F0A701360FC13002BB61F /* UIKit.framework */,
+				B28F0A721360FC13002BB61F /* Foundation.framework */,
+				B28F0A741360FC13002BB61F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B28F0A761360FC13002BB61F /* PongVille */ = {
+			isa = PBXGroup;
+			children = (
+				B28F0A7F1360FC13002BB61F /* PongVilleAppDelegate.h */,
+				B28F0A801360FC13002BB61F /* PongVilleAppDelegate.m */,
+				B28F0A821360FC13002BB61F /* MainWindow.xib */,
+				B28F0A851360FC14002BB61F /* PongVilleViewController.h */,
+				B28F0A861360FC14002BB61F /* PongVilleViewController.m */,
+				B28F0A881360FC14002BB61F /* PongVilleViewController.xib */,
+				B28F0A771360FC13002BB61F /* Supporting Files */,
+			);
+			path = PongVille;
+			sourceTree = "<group>";
+		};
+		B28F0A771360FC13002BB61F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B28F0A781360FC13002BB61F /* PongVille-Info.plist */,
+				B28F0A791360FC13002BB61F /* InfoPlist.strings */,
+				B28F0A7C1360FC13002BB61F /* PongVille-Prefix.pch */,
+				B28F0A7D1360FC13002BB61F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B28F0A961360FC14002BB61F /* PongVilleTests */ = {
+			isa = PBXGroup;
+			children = (
+				B28F0A9D1360FC14002BB61F /* PongVilleTests.h */,
+				B28F0A9F1360FC14002BB61F /* PongVilleTests.m */,
+				B28F0A971360FC14002BB61F /* Supporting Files */,
+			);
+			path = PongVilleTests;
+			sourceTree = "<group>";
+		};
+		B28F0A971360FC14002BB61F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B28F0A981360FC14002BB61F /* PongVilleTests-Info.plist */,
+				B28F0A991360FC14002BB61F /* InfoPlist.strings */,
+				B28F0A9C1360FC14002BB61F /* PongVilleTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B28F0A6B1360FC13002BB61F /* PongVille */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B28F0AA31360FC14002BB61F /* Build configuration list for PBXNativeTarget "PongVille" */;
+			buildPhases = (
+				B28F0A681360FC13002BB61F /* Sources */,
+				B28F0A691360FC13002BB61F /* Frameworks */,
+				B28F0A6A1360FC13002BB61F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PongVille;
+			productName = PongVille;
+			productReference = B28F0A6C1360FC13002BB61F /* PongVille.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B28F0A8F1360FC14002BB61F /* PongVilleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B28F0AA61360FC14002BB61F /* Build configuration list for PBXNativeTarget "PongVilleTests" */;
+			buildPhases = (
+				B28F0A8B1360FC14002BB61F /* Sources */,
+				B28F0A8C1360FC14002BB61F /* Frameworks */,
+				B28F0A8D1360FC14002BB61F /* Resources */,
+				B28F0A8E1360FC14002BB61F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B28F0A951360FC14002BB61F /* PBXTargetDependency */,
+			);
+			name = PongVilleTests;
+			productName = PongVilleTests;
+			productReference = B28F0A901360FC14002BB61F /* PongVilleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B28F0A631360FC13002BB61F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Ohio University";
+			};
+			buildConfigurationList = B28F0A661360FC13002BB61F /* Build configuration list for PBXProject "PongVille" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B28F0A611360FC13002BB61F;
+			productRefGroup = B28F0A6D1360FC13002BB61F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B28F0A6B1360FC13002BB61F /* PongVille */,
+				B28F0A8F1360FC14002BB61F /* PongVilleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B28F0A6A1360FC13002BB61F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B28F0A7B1360FC13002BB61F /* InfoPlist.strings in Resources */,
+				B28F0A841360FC13002BB61F /* MainWindow.xib in Resources */,
+				B28F0A8A1360FC14002BB61F /* PongVilleViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B28F0A8D1360FC14002BB61F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B28F0A9B1360FC14002BB61F /* InfoPlist.strings in Resources */,
+				B28F0A9E1360FC14002BB61F /* PongVilleTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B28F0A8E1360FC14002BB61F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B28F0A681360FC13002BB61F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B28F0A7E1360FC13002BB61F /* main.m in Sources */,
+				B28F0A811360FC13002BB61F /* PongVilleAppDelegate.m in Sources */,
+				B28F0A871360FC14002BB61F /* PongVilleViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B28F0A8B1360FC14002BB61F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B28F0AA01360FC14002BB61F /* PongVilleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B28F0A951360FC14002BB61F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B28F0A6B1360FC13002BB61F /* PongVille */;
+			targetProxy = B28F0A941360FC14002BB61F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B28F0A791360FC13002BB61F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B28F0A7A1360FC13002BB61F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B28F0A821360FC13002BB61F /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B28F0A831360FC13002BB61F /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		B28F0A881360FC14002BB61F /* PongVilleViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B28F0A891360FC14002BB61F /* en */,
+			);
+			name = PongVilleViewController.xib;
+			sourceTree = "<group>";
+		};
+		B28F0A991360FC14002BB61F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B28F0A9A1360FC14002BB61F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B28F0AA11360FC14002BB61F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		B28F0AA21360FC14002BB61F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		B28F0AA41360FC14002BB61F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PongVille/PongVille-Prefix.pch";
+				INFOPLIST_FILE = "PongVille/PongVille-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B28F0AA51360FC14002BB61F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PongVille/PongVille-Prefix.pch";
+				INFOPLIST_FILE = "PongVille/PongVille-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B28F0AA71360FC14002BB61F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PongVille.app/PongVille";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PongVilleTests/PongVilleTests-Prefix.pch";
+				INFOPLIST_FILE = "PongVilleTests/PongVilleTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B28F0AA81360FC14002BB61F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PongVille.app/PongVille";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PongVilleTests/PongVilleTests-Prefix.pch";
+				INFOPLIST_FILE = "PongVilleTests/PongVilleTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B28F0A661360FC13002BB61F /* Build configuration list for PBXProject "PongVille" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B28F0AA11360FC14002BB61F /* Debug */,
+				B28F0AA21360FC14002BB61F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B28F0AA31360FC14002BB61F /* Build configuration list for PBXNativeTarget "PongVille" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B28F0AA41360FC14002BB61F /* Debug */,
+				B28F0AA51360FC14002BB61F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B28F0AA61360FC14002BB61F /* Build configuration list for PBXNativeTarget "PongVilleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B28F0AA71360FC14002BB61F /* Debug */,
+				B28F0AA81360FC14002BB61F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B28F0A631360FC13002BB61F /* Project object */;
+}
