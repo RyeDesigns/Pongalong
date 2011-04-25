@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B22C0038136237D300C2CE3F /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22C0037136237D300C2CE3F /* CoreMotion.framework */; };
+		B23E1CBC1365048A0056D588 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B23E1CBB1365048A0056D588 /* Default.png */; };
+		B23E1CBE136507FA0056D588 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B23E1CBD136507FA0056D588 /* Default-Portrait~ipad.png */; };
 		B28F0A711360FC13002BB61F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28F0A701360FC13002BB61F /* UIKit.framework */; };
 		B28F0A731360FC13002BB61F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28F0A721360FC13002BB61F /* Foundation.framework */; };
 		B28F0A751360FC13002BB61F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B28F0A741360FC13002BB61F /* CoreGraphics.framework */; };
@@ -22,6 +25,8 @@
 		B28F0A9B1360FC14002BB61F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B28F0A991360FC14002BB61F /* InfoPlist.strings */; };
 		B28F0A9E1360FC14002BB61F /* PongVilleTests.h in Resources */ = {isa = PBXBuildFile; fileRef = B28F0A9D1360FC14002BB61F /* PongVilleTests.h */; };
 		B28F0AA01360FC14002BB61F /* PongVilleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B28F0A9F1360FC14002BB61F /* PongVilleTests.m */; };
+		B28F0AB61360FE96002BB61F /* Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = B28F0AB21360FE96002BB61F /* Ball.png */; };
+		B28F0ABB1360FF38002BB61F /* paddle.png in Resources */ = {isa = PBXBuildFile; fileRef = B28F0ABA1360FF38002BB61F /* paddle.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,26 +40,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B22C0037136237D300C2CE3F /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		B23E1CBB1365048A0056D588 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		B23E1CBD136507FA0056D588 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		B28F0A6C1360FC13002BB61F /* PongVille.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PongVille.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B28F0A701360FC13002BB61F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B28F0A721360FC13002BB61F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B28F0A741360FC13002BB61F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		B28F0A781360FC13002BB61F /* PongVille-Info.plist */ = {isa = PBXFileReference; path = "PongVille-Info.plist"; sourceTree = "<group>"; };
+		B28F0A781360FC13002BB61F /* PongVille-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PongVille-Info.plist"; sourceTree = "<group>"; };
 		B28F0A7A1360FC13002BB61F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B28F0A7C1360FC13002BB61F /* PongVille-Prefix.pch */ = {isa = PBXFileReference; path = "PongVille-Prefix.pch"; sourceTree = "<group>"; };
+		B28F0A7C1360FC13002BB61F /* PongVille-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PongVille-Prefix.pch"; sourceTree = "<group>"; };
 		B28F0A7D1360FC13002BB61F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B28F0A7F1360FC13002BB61F /* PongVilleAppDelegate.h */ = {isa = PBXFileReference; path = PongVilleAppDelegate.h; sourceTree = "<group>"; };
+		B28F0A7F1360FC13002BB61F /* PongVilleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PongVilleAppDelegate.h; sourceTree = "<group>"; };
 		B28F0A801360FC13002BB61F /* PongVilleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PongVilleAppDelegate.m; sourceTree = "<group>"; };
 		B28F0A831360FC13002BB61F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		B28F0A851360FC14002BB61F /* PongVilleViewController.h */ = {isa = PBXFileReference; path = PongVilleViewController.h; sourceTree = "<group>"; };
+		B28F0A851360FC14002BB61F /* PongVilleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PongVilleViewController.h; sourceTree = "<group>"; };
 		B28F0A861360FC14002BB61F /* PongVilleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PongVilleViewController.m; sourceTree = "<group>"; };
 		B28F0A891360FC14002BB61F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PongVilleViewController.xib; sourceTree = "<group>"; };
 		B28F0A901360FC14002BB61F /* PongVilleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PongVilleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B28F0A981360FC14002BB61F /* PongVilleTests-Info.plist */ = {isa = PBXFileReference; path = "PongVilleTests-Info.plist"; sourceTree = "<group>"; };
+		B28F0A981360FC14002BB61F /* PongVilleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PongVilleTests-Info.plist"; sourceTree = "<group>"; };
 		B28F0A9A1360FC14002BB61F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B28F0A9C1360FC14002BB61F /* PongVilleTests-Prefix.pch */ = {isa = PBXFileReference; path = "PongVilleTests-Prefix.pch"; sourceTree = "<group>"; };
+		B28F0A9C1360FC14002BB61F /* PongVilleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PongVilleTests-Prefix.pch"; sourceTree = "<group>"; };
 		B28F0A9D1360FC14002BB61F /* PongVilleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PongVilleTests.h; sourceTree = "<group>"; };
 		B28F0A9F1360FC14002BB61F /* PongVilleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PongVilleTests.m; sourceTree = "<group>"; };
+		B28F0AB21360FE96002BB61F /* Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball.png; sourceTree = "<group>"; };
+		B28F0ABA1360FF38002BB61F /* paddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B22C0038136237D300C2CE3F /* CoreMotion.framework in Frameworks */,
 				B28F0A711360FC13002BB61F /* UIKit.framework in Frameworks */,
 				B28F0A731360FC13002BB61F /* Foundation.framework in Frameworks */,
 				B28F0A751360FC13002BB61F /* CoreGraphics.framework in Frameworks */,
@@ -84,6 +95,9 @@
 		B28F0A611360FC13002BB61F = {
 			isa = PBXGroup;
 			children = (
+				B23E1CBD136507FA0056D588 /* Default-Portrait~ipad.png */,
+				B22C0037136237D300C2CE3F /* CoreMotion.framework */,
+				B28F0AB11360FCB0002BB61F /* Resources */,
 				B28F0A761360FC13002BB61F /* PongVille */,
 				B28F0A961360FC14002BB61F /* PongVilleTests */,
 				B28F0A6F1360FC13002BB61F /* Frameworks */,
@@ -153,6 +167,16 @@
 				B28F0A9C1360FC14002BB61F /* PongVilleTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B28F0AB11360FCB0002BB61F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B23E1CBB1365048A0056D588 /* Default.png */,
+				B28F0AB21360FE96002BB61F /* Ball.png */,
+				B28F0ABA1360FF38002BB61F /* paddle.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +252,10 @@
 				B28F0A7B1360FC13002BB61F /* InfoPlist.strings in Resources */,
 				B28F0A841360FC13002BB61F /* MainWindow.xib in Resources */,
 				B28F0A8A1360FC14002BB61F /* PongVilleViewController.xib in Resources */,
+				B28F0AB61360FE96002BB61F /* Ball.png in Resources */,
+				B28F0ABB1360FF38002BB61F /* paddle.png in Resources */,
+				B23E1CBC1365048A0056D588 /* Default.png in Resources */,
+				B23E1CBE136507FA0056D588 /* Default-Portrait~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,7 +354,7 @@
 		B28F0AA11360FC14002BB61F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -335,7 +363,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -344,13 +372,13 @@
 		B28F0AA21360FC14002BB61F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -366,7 +394,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PongVille/PongVille-Prefix.pch";
 				INFOPLIST_FILE = "PongVille/PongVille-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -379,7 +409,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PongVille/PongVille-Prefix.pch";
 				INFOPLIST_FILE = "PongVille/PongVille-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -450,6 +482,7 @@
 				B28F0AA51360FC14002BB61F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B28F0AA61360FC14002BB61F /* Build configuration list for PBXNativeTarget "PongVilleTests" */ = {
 			isa = XCConfigurationList;
@@ -458,6 +491,7 @@
 				B28F0AA81360FC14002BB61F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
