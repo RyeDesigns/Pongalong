@@ -7,15 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreMotion/CoreMotion.h>
 
 @class PongVilleViewController;
 
 @interface PongVilleAppDelegate : NSObject <UIApplicationDelegate> {
-
+    UIWindow *window;
+    PongVilleViewController *viewController;
+    CMMotionManager *motionManager;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
 @property (nonatomic, retain) IBOutlet PongVilleViewController *viewController;
+@property (readonly) CMMotionManager *motionManager;
 
 @end

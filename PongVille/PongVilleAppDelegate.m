@@ -26,6 +26,11 @@
     return YES;
 }
 
+-(CMMotionManager *)motionManager{
+    if(!motionManager) motionManager = [[CMMotionManager alloc] init];
+    return motionManager;
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     /*
