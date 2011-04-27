@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		368A69E41367DE0D009AD982 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 368A69E31367DE0D009AD982 /* CoreLocation.framework */; };
+		369F686B1367EF330093C55D /* ARController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369F68681367EF330093C55D /* ARController.m */; };
+		369F686C1367EF330093C55D /* ARController.m in Sources */ = {isa = PBXBuildFile; fileRef = 369F68681367EF330093C55D /* ARController.m */; };
+		369F686D1367EF330093C55D /* ARCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 369F686A1367EF330093C55D /* ARCoordinate.m */; };
+		369F686E1367EF330093C55D /* ARCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 369F686A1367EF330093C55D /* ARCoordinate.m */; };
 		B22C0038136237D300C2CE3F /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B22C0037136237D300C2CE3F /* CoreMotion.framework */; };
 		B23E1CBC1365048A0056D588 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B23E1CBB1365048A0056D588 /* Default.png */; };
 		B23E1CBE136507FA0056D588 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B23E1CBD136507FA0056D588 /* Default-Portrait~ipad.png */; };
@@ -40,6 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		368A69E31367DE0D009AD982 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		369F68671367EF330093C55D /* ARController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARController.h; sourceTree = "<group>"; };
+		369F68681367EF330093C55D /* ARController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARController.m; sourceTree = "<group>"; };
+		369F68691367EF330093C55D /* ARCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCoordinate.h; sourceTree = "<group>"; };
+		369F686A1367EF330093C55D /* ARCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCoordinate.m; sourceTree = "<group>"; };
 		B22C0037136237D300C2CE3F /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		B23E1CBB1365048A0056D588 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B23E1CBD136507FA0056D588 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
@@ -72,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				368A69E41367DE0D009AD982 /* CoreLocation.framework in Frameworks */,
 				B22C0038136237D300C2CE3F /* CoreMotion.framework in Frameworks */,
 				B28F0A711360FC13002BB61F /* UIKit.framework in Frameworks */,
 				B28F0A731360FC13002BB61F /* Foundation.framework in Frameworks */,
@@ -92,11 +103,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		369F68661367EF330093C55D /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				369F68671367EF330093C55D /* ARController.h */,
+				369F68681367EF330093C55D /* ARController.m */,
+				369F68691367EF330093C55D /* ARCoordinate.h */,
+				369F686A1367EF330093C55D /* ARCoordinate.m */,
+			);
+			path = AR;
+			sourceTree = "<group>";
+		};
 		B28F0A611360FC13002BB61F = {
 			isa = PBXGroup;
 			children = (
 				B23E1CBD136507FA0056D588 /* Default-Portrait~ipad.png */,
-				B22C0037136237D300C2CE3F /* CoreMotion.framework */,
 				B28F0AB11360FCB0002BB61F /* Resources */,
 				B28F0A761360FC13002BB61F /* PongVille */,
 				B28F0A961360FC14002BB61F /* PongVilleTests */,
@@ -117,6 +138,8 @@
 		B28F0A6F1360FC13002BB61F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				368A69E31367DE0D009AD982 /* CoreLocation.framework */,
+				B22C0037136237D300C2CE3F /* CoreMotion.framework */,
 				B28F0A701360FC13002BB61F /* UIKit.framework */,
 				B28F0A721360FC13002BB61F /* Foundation.framework */,
 				B28F0A741360FC13002BB61F /* CoreGraphics.framework */,
@@ -127,6 +150,7 @@
 		B28F0A761360FC13002BB61F /* PongVille */ = {
 			isa = PBXGroup;
 			children = (
+				369F68661367EF330093C55D /* AR */,
 				B28F0A7F1360FC13002BB61F /* PongVilleAppDelegate.h */,
 				B28F0A801360FC13002BB61F /* PongVilleAppDelegate.m */,
 				B28F0A821360FC13002BB61F /* MainWindow.xib */,
@@ -294,6 +318,8 @@
 				B28F0A7E1360FC13002BB61F /* main.m in Sources */,
 				B28F0A811360FC13002BB61F /* PongVilleAppDelegate.m in Sources */,
 				B28F0A871360FC14002BB61F /* PongVilleViewController.m in Sources */,
+				369F686B1367EF330093C55D /* ARController.m in Sources */,
+				369F686D1367EF330093C55D /* ARCoordinate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +328,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B28F0AA01360FC14002BB61F /* PongVilleTests.m in Sources */,
+				369F686C1367EF330093C55D /* ARController.m in Sources */,
+				369F686E1367EF330093C55D /* ARCoordinate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

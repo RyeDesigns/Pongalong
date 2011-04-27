@@ -8,6 +8,7 @@
 
 #import "PongVilleViewController.h"
 #import <CoreMotion/CoreMotion.h>
+#import "ARController.h"
 
 // Define a bunch of constants
 #define GAME_STATE_RUNNING 1
@@ -19,6 +20,9 @@
 #define SCORE_TO_WIN 3
 
 @implementation PongVilleViewController
+
+@synthesize arController;
+
 @synthesize puck;
 @synthesize computerPaddle;
 @synthesize userPaddle;
@@ -28,6 +32,11 @@
 @synthesize gameState;
 
 UIDeviceOrientation orientation;
+
+- (void)loadView {
+    self.arController = [[ARController alloc] initWithViewController:self];
+    [super loadView];
+}
 
 -(void)updateDeviceOrientation{
     NSLog(@"WAS:PongVilleViewController.m:updateDeviceOrientation:A");
@@ -50,9 +59,9 @@ UIDeviceOrientation orientation;
 -(void)changeBackgroundColorWithAccelerometerSeed:(CMAccelerometerData *)accelData{    
     // Set the buttonFrame x coordinate
                
-    float r = accelData.acceleration.x;// % 256.0 / 256.0;
-    float g = accelData.acceleration.y;// % 256.0 / 256.0;
-    float b = accelData.acceleration.z;// % 256.0 / 256.0; 
+    float r = accelData.acceleration.x;
+    float g = accelData.acceleration.y;
+    float b = accelData.acceleration.z;
     
     //Logging the colors is really resource intensive. Don't do it!
     //NSLog(@"WAS:r=%f,g=%f,b=%f",r,g,b);
@@ -61,8 +70,24 @@ UIDeviceOrientation orientation;
     self.view.backgroundColor = [UIColor colorWithRed:r green:g blue:b alpha:1];                              
 }
 
+-(void)changeBackgroundColorWithAR{
+    ARCoordinate *item = [[self arController] currentCoordinate];
+    
+    CGPoint point = [[self arController] pointForCoordinate:item];
+    
+    float r = (long)(point.x) % 256 / 256.0;
+    float g = (long)(point.y) % 256 / 256.0;
+    float b = (long)((point.x*point.y)/2) % 256 / 256.0;
+    
+    //Logging the colors is really resource intensive. Don't do it!
+    //NSLog(@"WAS:r=%f,g=%f,b=%f",r,g,b);
+    
+    // Set the new background color
+    self.view.backgroundColor = [UIColor colorWithRed:r green:g blue:b alpha:1];                              
+}
 
 - (void)dealloc{
+	[arController release];
     [super dealloc];
 }
 
@@ -81,7 +106,7 @@ UIDeviceOrientation orientation;
     
     // This is to constantly change the background color based on accelerometer data
     // Perhaps this should be an opt-in option. It may not resonate with all users.
-    [self changeBackgroundColorWithAccelerometerSeed:accelData];
+    [self changeBackgroundColorWithAR];
     
     // Set the buttonFrame x coordinate
         switch (orientation) {
@@ -391,7 +416,6 @@ UIDeviceOrientation orientation;
     // Return YES for supported orientations
     return YES;
 }
-
 
 // TODO: Fix the core motion such that it rotates along with the screen orientation
 // TODO: The problem is that the screen will rotate just fine into other orientations,

@@ -8,8 +8,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+
+@class ARController;
 
 @interface PongVilleViewController : UIViewController {
+    ARController *arController;
+    
     IBOutlet UIImageView *puck;
     
     IBOutlet UIImageView *computerPaddle;
@@ -27,6 +33,8 @@
     
     NSTimer *scoreBoardMarquee;
 }
+
+@property (nonatomic, retain) ARController *arController;
 
 @property(nonatomic,retain) IBOutlet UIImageView *puck;
 @property(nonatomic,retain) IBOutlet UIImageView *computerPaddle;
