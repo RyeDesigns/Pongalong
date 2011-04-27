@@ -35,6 +35,31 @@ UIDeviceOrientation orientation;
     orientation = device.orientation;        
 }
 
+-(void)changeBackgroundColorToRandomColor{
+    
+    // Create float values for reg, green, and blue
+    float r = random() % 256 / 256.0;
+    float g = random() % 256 / 256.0;
+    float b = random() % 256 / 256.0;
+    
+    // Set the new background color
+    self.view.backgroundColor = [UIColor colorWithRed:r green:g blue:b alpha:1];
+
+}
+
+-(void)changeBackgroundColorWithAccelerometerSeed:(CMAccelerometerData *)accelData{    
+    // Set the buttonFrame x coordinate
+               
+    float r = accelData.acceleration.x;// % 256.0 / 256.0;
+    float g = accelData.acceleration.y;// % 256.0 / 256.0;
+    float b = accelData.acceleration.z;// % 256.0 / 256.0; 
+    
+    //Logging the colors is really resource intensive. Don't do it!
+    //NSLog(@"WAS:r=%f,g=%f,b=%f",r,g,b);
+          
+    // Set the new background color
+    self.view.backgroundColor = [UIColor colorWithRed:r green:g blue:b alpha:1];                              
+}
 
 
 - (void)dealloc{
@@ -53,6 +78,10 @@ UIDeviceOrientation orientation;
 }
 
 -(CGRect)calculateNewImageFramewithImageFrame:(CGRect)imageFrameValue withAccelerometer:(CMAccelerometerData *)accelData{
+    
+    // This is to constantly change the background color based on accelerometer data
+    // Perhaps this should be an opt-in option. It may not resonate with all users.
+    [self changeBackgroundColorWithAccelerometerSeed:accelData];
     
     // Set the buttonFrame x coordinate
         switch (orientation) {
@@ -377,6 +406,9 @@ UIDeviceOrientation orientation;
     
     // Update the device orientation
     [self updateDeviceOrientation];
+    
+    // Change the background color to red. Remove this
+    [ self changeBackgroundColorToRandomColor];
 }
 
 @end
