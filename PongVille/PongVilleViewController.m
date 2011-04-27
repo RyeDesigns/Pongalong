@@ -16,7 +16,7 @@
 #define MOTION_SCALE 20.0
 #define BALL_SPEED_X 6
 #define BALL_SPEED_Y 9
-#define COMPUTER_PADDLE_SPEED 15
+#define COMPUTER_PADDLE_SPEED 30
 #define SCORE_TO_WIN 3
 
 @implementation PongVilleViewController
@@ -29,7 +29,7 @@
 @synthesize instructionMessageLabel;
 @synthesize scoreBoardLabel;
 @synthesize puckVelocity;
-@synthesize gameState;
+@synthesize gameState,motionScale,ballSpeedX,ballSpeedY,computerPaddleSpeed,scoreToWin;
 
 UIDeviceOrientation orientation;
 
@@ -246,12 +246,12 @@ UIDeviceOrientation orientation;
     if(puck.center.y <= self.view.center.y){
         
         if(puck.center.x < computerPaddle.center.x){
-            CGPoint compLocation = CGPointMake(computerPaddle.center.x - COMPUTER_PADDLE_SPEED, computerPaddle.center.y);
+            CGPoint compLocation = CGPointMake(computerPaddle.center.x - computerPaddleSpeed, computerPaddle.center.y);
             computerPaddle.center = compLocation;
         }
         
         if(puck.center.x > computerPaddle.center.x){
-            CGPoint compLocation = CGPointMake(computerPaddle.center.x + COMPUTER_PADDLE_SPEED, computerPaddle.center.y);
+            CGPoint compLocation = CGPointMake(computerPaddle.center.x + computerPaddleSpeed, computerPaddle.center.y);
             computerPaddle.center = compLocation;
         }
     } 
@@ -262,12 +262,12 @@ UIDeviceOrientation orientation;
     if(puck.center.y <= (self.view.center.y *2/3)){
         
         if(puck.center.x < computerPaddle.center.x){
-            CGPoint compLocation = CGPointMake(computerPaddle.center.x - COMPUTER_PADDLE_SPEED, computerPaddle.center.y);
+            CGPoint compLocation = CGPointMake(computerPaddle.center.x - computerPaddleSpeed, computerPaddle.center.y);
             computerPaddle.center = compLocation;
         }
         
         if(puck.center.x > computerPaddle.center.x){
-            CGPoint compLocation = CGPointMake(computerPaddle.center.x + COMPUTER_PADDLE_SPEED, computerPaddle.center.y);
+            CGPoint compLocation = CGPointMake(computerPaddle.center.x + computerPaddleSpeed, computerPaddle.center.y);
             computerPaddle.center = compLocation;
         }
     } 
@@ -434,5 +434,8 @@ UIDeviceOrientation orientation;
     // Change the background color to red. Remove this
     [ self changeBackgroundColorToRandomColor];
 }
-
+-(IBAction)sliderChanged:(id)sender{
+    UISlider *slider = (UISlider *)sender;
+    computerPaddleSpeed = (int)((slider.value) * COMPUTER_PADDLE_SPEED);
+}
 @end

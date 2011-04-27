@@ -30,6 +30,11 @@
     
     CGPoint puckVelocity;
     NSInteger gameState;
+    NSInteger motionScale;
+    NSInteger ballSpeedX;
+    NSInteger ballSpeedY;
+    NSInteger computerPaddleSpeed;
+    NSInteger scoreToWin;
     
     NSTimer *scoreBoardMarquee;
 }
@@ -45,7 +50,7 @@
 @property(nonatomic,retain) IBOutlet UILabel *scoreBoardLabel;
 
 @property(nonatomic) CGPoint puckVelocity;
-@property(nonatomic) NSInteger gameState;
+@property(nonatomic) NSInteger gameState,motionScale,ballSpeedX,ballSpeedY,computerPaddleSpeed,scoreToWin;
 
 
 @end
