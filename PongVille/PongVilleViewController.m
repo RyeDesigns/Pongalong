@@ -2,7 +2,7 @@
 //  PongVilleViewController.m
 //  PongVille
 //
-//  Created by Alex Sheridan on 4/21/11.
+//  Created by Derek Zoolander on The End of Days
 //  Copyright 2011 Ohio University. All rights reserved.
 //
 
