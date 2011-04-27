@@ -27,6 +27,16 @@
 @synthesize puckVelocity;
 @synthesize gameState;
 
+UIDeviceOrientation orientation;
+
+-(void)updateDeviceOrientation{
+    NSLog(@"WAS:PongVilleViewController.m:updateDeviceOrientation:A");
+    UIDevice *device = [UIDevice currentDevice];    
+    orientation = device.orientation;        
+}
+
+
+
 - (void)dealloc{
     [super dealloc];
 }
@@ -43,10 +53,9 @@
 }
 
 -(CGRect)calculateNewImageFramewithImageFrame:(CGRect)imageFrameValue withAccelerometer:(CMAccelerometerData *)accelData{
-    UIDevice *device = [UIDevice currentDevice];
     
     // Set the buttonFrame x coordinate
-        switch (device.orientation) {
+        switch (orientation) {
         case UIDeviceOrientationPortrait:            
             imageFrameValue.origin.x += accelData.acceleration.x * MOTION_SCALE;            
             break;            
@@ -60,6 +69,7 @@
             imageFrameValue.origin.x += accelData.acceleration.y * 2 * MOTION_SCALE;            
             break;            
         default:
+            [self updateDeviceOrientation];
             break;
         }
     return imageFrameValue;
@@ -363,7 +373,10 @@
     
     // Put the next two calls into their own function
     // [self.motionManager stopAccelerometerUpdates];
-    // [self startPaddleDrifting:userPaddle];    
+    // [self startPaddleDrifting:userPaddle];   
+    
+    // Update the device orientation
+    [self updateDeviceOrientation];
 }
 
 @end
