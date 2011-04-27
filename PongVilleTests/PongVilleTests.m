@@ -3,7 +3,7 @@
 //  PongVilleTests
 //
 //  Created by Alex Sheridan on 4/21/11.
-//  Copyright 2011 Ohio University. All rights reserved.
+//  Copyright 2011 Rye Designs. All rights reserved.
 //
 
 #import "PongVilleTests.h"

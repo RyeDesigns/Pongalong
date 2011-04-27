@@ -3,7 +3,7 @@
 //  PongVille
 //
 //  Created by Derek Zoolander on The End of Days
-//  Copyright 2011 Ohio University. All rights reserved.
+//  Copyright 2011 Rye Designs. All rights reserved.
 //
 
 #import "PongVilleViewController.h"
