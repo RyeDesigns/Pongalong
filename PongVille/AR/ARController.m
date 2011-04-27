@@ -44,10 +44,7 @@
 	self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 	self.locationManager.delegate = self;
 	[self.locationManager startUpdatingHeading];
-	[self.locationManager startUpdatingLocation];
 	
-	self.currentLocation = [[CLLocation alloc] initWithLatitude:37.33231 longitude:-122.03118];	 
-	 
 	// Initalise the UIAccelerometer
 	self.accelerometer = [UIAccelerometer sharedAccelerometer];
 	self.accelerometer.updateInterval = 0.25;
@@ -73,7 +70,7 @@
 }
 
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager {
-	return YES;
+	return NO;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
