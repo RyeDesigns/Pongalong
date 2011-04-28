@@ -46,7 +46,7 @@ UIDeviceOrientation orientation;
 
 -(void)changeBackgroundColorToRandomColor{
     
-    // Create float values for reg, green, and blue
+    // Create float values for red, green, and blue
     float r = random() % 256 / 256.0;
     float g = random() % 256 / 256.0;
     float b = random() % 256 / 256.0;
@@ -57,17 +57,37 @@ UIDeviceOrientation orientation;
 }
 
 -(void)changeBackgroundColorWithAccelerometerSeed:(CMAccelerometerData *)accelData{    
-    // Set the buttonFrame x coordinate
-               
-    float r = accelData.acceleration.x;
-    float g = accelData.acceleration.y;
-    float b = accelData.acceleration.z;
+    
+    // Define the Red/Green/Blue values
+    // Each value has a range of 0 to 1
+    // Values below 0 will be treated as 0
+    // Values above 1 will be treated as 1
+    float r = .6 - accelData.acceleration.x;
+    float g = .6 - accelData.acceleration.y;
+    float b = .6 - accelData.acceleration.z;
+
     
     //Logging the colors is really resource intensive. Don't do it!
-    //NSLog(@"WAS:r=%f,g=%f,b=%f",r,g,b);
+    // NSLog(@"WAS:r=%f,g=%f,b=%f",r,g,b);
           
     // Set the new background color
     self.view.backgroundColor = [UIColor colorWithRed:r green:g blue:b alpha:1];                              
+}
+
+-(void)changePaddleColorsToOppositeOfBackground{
+    
+    int numComponents = CGColorGetNumberOfComponents(self.view.backgroundColor.CGColor);
+    
+    if (numComponents == 4){
+        const CGFloat *components = CGColorGetComponents(self.view.backgroundColor.CGColor);
+        CGFloat red = components[0];
+        CGFloat green = components[1];
+        CGFloat blue = components[2];
+        CGFloat alpha = components[3];
+        
+        self.userPaddle.backgroundColor = [UIColor colorWithRed:1-red green:1-green blue:1-blue alpha:alpha];
+        self.computerPaddle.backgroundColor = [UIColor colorWithRed:1-red green:1-green blue:1-blue alpha:alpha];
+    }
 }
 
 -(void)changeBackgroundColorWithAR{
@@ -106,7 +126,13 @@ UIDeviceOrientation orientation;
     
     // This is to constantly change the background color based on accelerometer data
     // Perhaps this should be an opt-in option. It may not resonate with all users.
-    [self changeBackgroundColorWithAR];
+    //[self changeBackgroundColorWithAccelerometerSeed:accelData];
+    
+    // Change background color using augmented reality logic
+     [self changeBackgroundColorWithAR];
+    
+    // Change the paddle color
+    [self changePaddleColorsToOppositeOfBackground];
     
     // Set the buttonFrame x coordinate
         switch (orientation) {
