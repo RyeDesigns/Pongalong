@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-     
+    application.idleTimerDisabled = YES;
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
