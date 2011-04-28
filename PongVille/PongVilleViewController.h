@@ -36,6 +36,9 @@
     NSInteger computerPaddleSpeed;
     NSInteger scoreToWin;
     
+    Boolean justHitUserPadle;
+    Boolean justHitCompPadle;
+    
     NSTimer *scoreBoardMarquee;
 }
 

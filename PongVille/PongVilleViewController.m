@@ -36,6 +36,9 @@ UIDeviceOrientation orientation;
 - (void)loadView {
     self.arController = [[ARController alloc] initWithViewController:self];
     
+    justHitUserPadle = FALSE;
+    justHitCompPadle = FALSE;
+    
     //Initilize settings:
     gameState = GAME_STATE_PAUSED;
     motionScale = MOTION_SCALE;
@@ -254,30 +257,54 @@ UIDeviceOrientation orientation;
     // If the puck has hit a side wall, reverse the puck velocity
     if(puck.center.x > self.view.bounds.size.width || puck.center.x < 0){
         puckVelocity.x = -puckVelocity.x;
+        justHitUserPadle = FALSE;
+        justHitCompPadle = FALSE;
     }
     
     // If the puck has hit a wall, reverse the puck velocity
     if(puck.center.y > self.view.bounds.size.height || puck.center.y < 0){
         puckVelocity.y = -puckVelocity.y;
+        justHitUserPadle = FALSE;
+        justHitCompPadle = FALSE;
     }
     
     // If the puck has hit the computer paddle, reverse the velocity
-    if(CGRectIntersectsRect(puck.frame,userPaddle.frame)) {
+    if(CGRectIntersectsRect(puck.frame,userPaddle.frame) && !justHitUserPadle) {
         if(puck.center.y < userPaddle.center.y) {
             puckVelocity.y = -puckVelocity.y;
+            justHitUserPadle = TRUE;
+            justHitCompPadle = FALSE;
         }
     }
     
     // If the puck has hit the user paddle, reverse the velocity
-    if(CGRectIntersectsRect(puck.frame,computerPaddle.frame)) {
+    if(CGRectIntersectsRect(puck.frame,computerPaddle.frame) && !justHitCompPadle) {
         if(puck.center.y > computerPaddle.center.y) {
             puckVelocity.y = -puckVelocity.y;
+            justHitUserPadle = FALSE;
+            justHitCompPadle = TRUE;
         }
     }
 }
 
 -(void)performSmartAI{
     // Begin the super advanced artificial intelligence
+    if(puck.center.y <= self.view.center.y){
+        
+        if(puck.center.x < computerPaddle.center.x){
+            CGPoint compLocation = CGPointMake(computerPaddle.center.x - computerPaddleSpeed, computerPaddle.center.y);
+            computerPaddle.center = compLocation;
+        }
+        
+        if(puck.center.x > computerPaddle.center.x){
+            CGPoint compLocation = CGPointMake(computerPaddle.center.x + computerPaddleSpeed, computerPaddle.center.y);
+            computerPaddle.center = compLocation;
+        }
+    } 
+}
+
+-(void)performRandomAI{
+    // Begin the AI that can make random mistakes
     if(puck.center.y <= self.view.center.y){
         
         if(puck.center.x < computerPaddle.center.x){
@@ -419,7 +446,6 @@ UIDeviceOrientation orientation;
 {
     [super viewDidLoad];
     [self displayInitialPrompt];
-    puckVelocity = CGPointMake(ballSpeedX, ballSpeedY);
     [NSTimer scheduledTimerWithTimeInterval:0.05 
                                      target:self 
                                    selector:@selector(flowCycle) 
@@ -435,6 +461,9 @@ UIDeviceOrientation orientation;
     //    UITapGestureRecognizer *tapgr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
     //    [self.view addGestureRecognizer:tapgr];
     //    [tapgr release];
+    
+    //setting this here so that when the view switches from settings to game it will update these.
+    puckVelocity = CGPointMake(ballSpeedX, ballSpeedY);
     
     [super viewDidAppear:animated];
     [self startPaddleDrifting:userPaddle];
