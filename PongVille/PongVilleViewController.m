@@ -35,6 +35,15 @@ UIDeviceOrientation orientation;
 
 - (void)loadView {
     self.arController = [[ARController alloc] initWithViewController:self];
+    
+    //Initilize settings:
+    gameState = GAME_STATE_PAUSED;
+    motionScale = MOTION_SCALE;
+    ballSpeedX = BALL_SPEED_X;
+    ballSpeedY = BALL_SPEED_Y;
+    computerPaddleSpeed = COMPUTER_PADDLE_SPEED;
+    scoreToWin = SCORE_TO_WIN;
+    
     [super loadView];
 }
 
@@ -126,10 +135,10 @@ UIDeviceOrientation orientation;
     
     // This is to constantly change the background color based on accelerometer data
     // Perhaps this should be an opt-in option. It may not resonate with all users.
-    //[self changeBackgroundColorWithAccelerometerSeed:accelData];
+    [self changeBackgroundColorWithAccelerometerSeed:accelData];
     
     // Change background color using augmented reality logic
-     [self changeBackgroundColorWithAR];
+     //[self changeBackgroundColorWithAR];
     
     // Change the paddle color
     [self changePaddleColorsToOppositeOfBackground];
@@ -137,16 +146,16 @@ UIDeviceOrientation orientation;
     // Set the buttonFrame x coordinate
         switch (orientation) {
         case UIDeviceOrientationPortrait:            
-            imageFrameValue.origin.x += accelData.acceleration.x * MOTION_SCALE;            
+            imageFrameValue.origin.x += accelData.acceleration.x * motionScale;            
             break;            
         case UIDeviceOrientationPortraitUpsideDown:            
-            imageFrameValue.origin.x += -accelData.acceleration.x * MOTION_SCALE;            
+            imageFrameValue.origin.x += -accelData.acceleration.x * motionScale;            
             break;            
         case UIDeviceOrientationLandscapeLeft:            
-            imageFrameValue.origin.x += -accelData.acceleration.y * 2 * MOTION_SCALE;            
+            imageFrameValue.origin.x += -accelData.acceleration.y * 2 * motionScale;            
             break;            
         case UIDeviceOrientationLandscapeRight:            
-            imageFrameValue.origin.x += accelData.acceleration.y * 2 * MOTION_SCALE;            
+            imageFrameValue.origin.x += accelData.acceleration.y * 2 * motionScale;            
             break;            
         default:
             [self updateDeviceOrientation];
@@ -165,7 +174,7 @@ UIDeviceOrientation orientation;
              CGRect imageFrame = image.frame;
              
              // Set the buttonFrame x coordinate
-             //imageFrame.origin.x += data.acceleration.x * MOTION_SCALE;
+             //imageFrame.origin.x += data.acceleration.x * motionScale;
              imageFrame = [self calculateNewImageFramewithImageFrame:imageFrame withAccelerometer:data];
              
              // If proposed coordinates are out of bounds, keep existing coordinates
@@ -314,11 +323,11 @@ UIDeviceOrientation orientation;
     if(puck.center.y <= 0){
         userScoreValue = userScoreValue +1;
         NSLog(@"WAS:performScoringLogic:about to call reset:A");
-        [self reset:(userScoreValue >= SCORE_TO_WIN)];
+        [self reset:(userScoreValue >= scoreToWin)];
     }else if(puck.center.y > self.view.bounds.size.height){
         computerScoreValue = computerScoreValue +1;
         NSLog(@"WAS:performScoringLogic:about to call reset:B");
-        [self reset:(computerScoreValue >= SCORE_TO_WIN)];
+        [self reset:(computerScoreValue >= scoreToWin)];
     }
 }
 
@@ -410,7 +419,7 @@ UIDeviceOrientation orientation;
 {
     [super viewDidLoad];
     [self displayInitialPrompt];
-    puckVelocity = CGPointMake(BALL_SPEED_X, BALL_SPEED_Y);
+    puckVelocity = CGPointMake(ballSpeedX, ballSpeedY);
     [NSTimer scheduledTimerWithTimeInterval:0.05 
                                      target:self 
                                    selector:@selector(flowCycle) 
