@@ -32,6 +32,8 @@
 		B28F0AA01360FC14002BB61F /* PongVilleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B28F0A9F1360FC14002BB61F /* PongVilleTests.m */; };
 		B28F0AB61360FE96002BB61F /* Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = B28F0AB21360FE96002BB61F /* Ball.png */; };
 		B28F0ABB1360FF38002BB61F /* paddle.png in Resources */ = {isa = PBXBuildFile; fileRef = B28F0ABA1360FF38002BB61F /* paddle.png */; };
+		B2D81698136B83CF00E508B8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D81696136B83CF00E508B8 /* SettingsViewController.m */; };
+		B2D81699136B83CF00E508B8 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D81697136B83CF00E508B8 /* SettingsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,9 @@
 		B28F0A9F1360FC14002BB61F /* PongVilleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PongVilleTests.m; sourceTree = "<group>"; };
 		B28F0AB21360FE96002BB61F /* Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball.png; sourceTree = "<group>"; };
 		B28F0ABA1360FF38002BB61F /* paddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddle.png; sourceTree = "<group>"; };
+		B2D81695136B83CF00E508B8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = PongVille.xcodeproj/SettingsViewController.h; sourceTree = SOURCE_ROOT; };
+		B2D81696136B83CF00E508B8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = PongVille.xcodeproj/SettingsViewController.m; sourceTree = SOURCE_ROOT; };
+		B2D81697136B83CF00E508B8 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SettingsViewController.xib; path = PongVille.xcodeproj/SettingsViewController.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +122,6 @@
 		B28F0A611360FC13002BB61F = {
 			isa = PBXGroup;
 			children = (
-				B23E1CBD136507FA0056D588 /* Default-Portrait~ipad.png */,
 				B28F0AB11360FCB0002BB61F /* Resources */,
 				B28F0A761360FC13002BB61F /* PongVille */,
 				B28F0A961360FC14002BB61F /* PongVilleTests */,
@@ -157,6 +161,9 @@
 				B28F0A851360FC14002BB61F /* PongVilleViewController.h */,
 				B28F0A861360FC14002BB61F /* PongVilleViewController.m */,
 				B28F0A881360FC14002BB61F /* PongVilleViewController.xib */,
+				B2D81695136B83CF00E508B8 /* SettingsViewController.h */,
+				B2D81696136B83CF00E508B8 /* SettingsViewController.m */,
+				B2D81697136B83CF00E508B8 /* SettingsViewController.xib */,
 				B28F0A771360FC13002BB61F /* Supporting Files */,
 			);
 			path = PongVille;
@@ -196,6 +203,7 @@
 		B28F0AB11360FCB0002BB61F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B23E1CBD136507FA0056D588 /* Default-Portrait~ipad.png */,
 				B23E1CBB1365048A0056D588 /* Default.png */,
 				B28F0AB21360FE96002BB61F /* Ball.png */,
 				B28F0ABA1360FF38002BB61F /* paddle.png */,
@@ -280,6 +288,7 @@
 				B28F0ABB1360FF38002BB61F /* paddle.png in Resources */,
 				B23E1CBC1365048A0056D588 /* Default.png in Resources */,
 				B23E1CBE136507FA0056D588 /* Default-Portrait~ipad.png in Resources */,
+				B2D81699136B83CF00E508B8 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +329,7 @@
 				B28F0A871360FC14002BB61F /* PongVilleViewController.m in Sources */,
 				369F686B1367EF330093C55D /* ARController.m in Sources */,
 				369F686D1367EF330093C55D /* ARCoordinate.m in Sources */,
+				B2D81698136B83CF00E508B8 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

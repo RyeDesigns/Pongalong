@@ -10,10 +10,11 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "SettingsViewController.h"
 
 @class ARController;
 
-@interface PongVilleViewController : UIViewController {
+@interface PongVilleViewController : UIViewController <SettingsViewControllerDelegate>{
     ARController *arController;
     
     IBOutlet UIImageView *puck;

@@ -9,6 +9,7 @@
 #import "PongVilleViewController.h"
 #import <CoreMotion/CoreMotion.h>
 #import "ARController.h"
+#import "SettingsViewController.h"
 
 // Define a bunch of constants
 #define GAME_STATE_RUNNING 1
@@ -120,6 +121,15 @@ UIDeviceOrientation orientation;
 
 - (void)dealloc{
 	[arController release];
+    
+    
+    [puck release];
+    [computerPaddle release];
+    [userPaddle release];
+    [instructionMessageLabel release];
+    [scoreBoardLabel release];
+    [scoreBoardMarquee release];
+    
     [super dealloc];
 }
 
@@ -134,6 +144,7 @@ UIDeviceOrientation orientation;
     return motionManager;
 }
 
+
 -(CGRect)calculateNewImageFramewithImageFrame:(CGRect)imageFrameValue withAccelerometer:(CMAccelerometerData *)accelData{
     
     // This is to constantly change the background color based on accelerometer data
@@ -141,10 +152,10 @@ UIDeviceOrientation orientation;
     [self changeBackgroundColorWithAccelerometerSeed:accelData];
     
     // Change background color using augmented reality logic
-     //[self changeBackgroundColorWithAR];
+    //[self changeBackgroundColorWithAR];
     
     // Change the paddle color
-    [self changePaddleColorsToOppositeOfBackground];
+    // [self changePaddleColorsToOppositeOfBackground];
     
     // Set the buttonFrame x coordinate
         switch (orientation) {
@@ -341,7 +352,8 @@ UIDeviceOrientation orientation;
 -(void)performArtificialIntelligence
 {
     //[self performSmartAI];
-    [self performTerribleAI];
+    //[self performTerribleAI];
+    [self performRandomAI];
 }
 
 -(void)performScoringLogic
@@ -440,6 +452,26 @@ UIDeviceOrientation orientation;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
+    computerPaddle = nil;
+    userPaddle = nil;
+    instructionMessageLabel = nil;
+    scoreBoardLabel = nil;
+    scoreBoardMarquee = nil;
+    
+    //[self.motionManager release];
+    
+    
+    
+}
+
+
+
+-(void)swiperight{
+    SettingsViewController *settingsViewController = [[SettingsViewController alloc] init];
+    settingsViewController.delegate = self;
+    [self presentModalViewController:settingsViewController animated:YES];
+    [settingsViewController release];
 }
 
 - (void)viewDidLoad
@@ -451,7 +483,13 @@ UIDeviceOrientation orientation;
                                    selector:@selector(flowCycle) 
                                    userInfo:nil 
                                     repeats:YES];
-    //[self doScoreMarqueeMagic];
+
+    // Add the "swipe right" gesture recognizer
+    UISwipeGestureRecognizer *swipeRightGestureRecognizer =
+    [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swiperight)];
+    swipeRightGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeRightGestureRecognizer];
+    [swipeRightGestureRecognizer release];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -481,25 +519,36 @@ UIDeviceOrientation orientation;
     return YES;
 }
 
-// TODO: Fix the core motion such that it rotates along with the screen orientation
-// TODO: The problem is that the screen will rotate just fine into other orientations,
-// but the core motion sticks with its original settings!
+-(void)settingsViewController:(SettingsViewController *)_settingsViewController 
+      withComputerPaddleSpeed:(NSInteger)_computerPaddleSpeed{
+    NSLog(@"WAS:settingsViewControllerWPS:self.computerPaddleSpeed=%d",self.computerPaddleSpeed);
+    self.computerPaddleSpeed = _computerPaddleSpeed;
+    NSLog(@"WAS:settingsViewControllerWPS:_computerPaddleSpeed=%d",_computerPaddleSpeed);
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
+
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
     NSLog(@"Rotating!");
     [self pauseGame];
-    
-    // Put the next two calls into their own function
-    // [self.motionManager stopAccelerometerUpdates];
-    // [self startPaddleDrifting:userPaddle];   
+      
     
     // Update the device orientation
     [self updateDeviceOrientation];
     
-    // Change the background color to red. Remove this
+    // Change the background color to a random color
     [ self changeBackgroundColorToRandomColor];
 }
--(IBAction)sliderChanged:(id)sender{
-    UISlider *slider = (UISlider *)sender;
-    computerPaddleSpeed = (int)((slider.value) * COMPUTER_PADDLE_SPEED);
-}
+
+
+
+
+//-(IBAction)sliderChanged:(id)sender{
+//    UISlider *slider = (UISlider *)sender;
+//    computerPaddleSpeed = (int)((slider.value) * COMPUTER_PADDLE_SPEED);
+//}
+
+
+
 @end
