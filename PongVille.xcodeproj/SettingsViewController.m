@@ -8,11 +8,9 @@
 
 #import "SettingsViewController.h"
 
-
 @implementation SettingsViewController
 @synthesize delegate;
-@synthesize computerPaddleSpeed;
-@synthesize computerPaddleSpeedSlider;
+@synthesize motionScaleSlider,computerPaddleSpeedSlider,ballSpeedXSlider,ballSpeedYSlider,scoreToWin;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,13 +21,35 @@
     return self;
 }
 
+-(IBAction)motionScaleSliderChanged:(UISlider *)_motionScaleSlider{   
+    [[NSUserDefaults standardUserDefaults] setFloat:_motionScaleSlider.value forKey:MOTION_SCALE];
+}
 -(IBAction)computerPaddleSliderChanged:(UISlider *)_computerPaddleSpeedSlider{   
-    self.computerPaddleSpeed = _computerPaddleSpeedSlider.value;    
+    [[NSUserDefaults standardUserDefaults] setFloat:_computerPaddleSpeedSlider.value forKey:COMPUTER_PADDLE_SPEED];
+}
+-(IBAction)ballSpeedXSliderChanged:(UISlider *)_ballSpeedXSlider{   
+    [[NSUserDefaults standardUserDefaults] setFloat:_ballSpeedXSlider.value forKey:BALL_SPEED_X];
+}
+-(IBAction)ballSpeedYSliderChanged:(UISlider *)_ballSpeedYSlider{   
+    [[NSUserDefaults standardUserDefaults] setFloat:_ballSpeedYSlider.value forKey:BALL_SPEED_Y];
+}
+-(IBAction)scoreToWinChanged:(UISlider *)_scoreToWin{   
+    [[NSUserDefaults standardUserDefaults] setFloat:_scoreToWin.value forKey:SCORE_TO_WIN];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    self.motionScaleSlider.value 
+        = [[NSUserDefaults standardUserDefaults] floatForKey:MOTION_SCALE];
+    self.computerPaddleSpeedSlider.value 
+        = [[NSUserDefaults standardUserDefaults] floatForKey:COMPUTER_PADDLE_SPEED];
+    self.ballSpeedXSlider.value 
+        = [[NSUserDefaults standardUserDefaults] floatForKey:BALL_SPEED_X];
+    self.ballSpeedYSlider.value 
+        = [[NSUserDefaults standardUserDefaults] floatForKey:BALL_SPEED_Y];
+    self.scoreToWin.value 
+        = [[NSUserDefaults standardUserDefaults] floatForKey:SCORE_TO_WIN];
+    
     [super viewWillAppear:animated];
-    self.computerPaddleSpeedSlider.value = computerPaddleSpeed;
 }
 
 - (void)dealloc
@@ -39,11 +59,7 @@
 }
 
 -(IBAction)done{    
-    NSLog(@"WAS:SettingsViewController.m:done:A");
-    [self.delegate settingsViewController:self 
-                  withComputerPaddleSpeed:self.computerPaddleSpeedSlider.value];
-    NSLog(@"WAS:SettingsViewController.m:done:Z");
-    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,8 +85,6 @@
     self.computerPaddleSpeedSlider = nil;
     
 }
-
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

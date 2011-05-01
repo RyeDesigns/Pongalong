@@ -31,10 +31,10 @@
     
     CGPoint puckVelocity;
     NSInteger gameState;
-    NSInteger motionScale;
-    NSInteger ballSpeedX;
-    NSInteger ballSpeedY;
-    NSInteger computerPaddleSpeed;
+    CGFloat motionScale;
+    CGFloat ballSpeedX;
+    CGFloat ballSpeedY;
+    CGFloat computerPaddleSpeed;
     NSInteger scoreToWin;
     
     Boolean justHitUserPadle;
@@ -54,7 +54,8 @@
 @property(nonatomic,retain) IBOutlet UILabel *scoreBoardLabel;
 
 @property(nonatomic) CGPoint puckVelocity;
-@property(nonatomic) NSInteger gameState,motionScale,ballSpeedX,ballSpeedY,computerPaddleSpeed,scoreToWin;
+@property(nonatomic) NSInteger gameState,scoreToWin;
+@property(nonatomic) CGFloat motionScale,ballSpeedX,ballSpeedY,computerPaddleSpeed;
 
 
 @end

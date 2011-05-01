@@ -14,11 +14,11 @@
 // Define a bunch of constants
 #define GAME_STATE_RUNNING 1
 #define GAME_STATE_PAUSED 2
-#define MOTION_SCALE 20.0
-#define BALL_SPEED_X 6
-#define BALL_SPEED_Y 9
-#define COMPUTER_PADDLE_SPEED 30
-#define SCORE_TO_WIN 3
+#define DEFAULT_MOTION_SCALE 20.0
+#define DEFAULT_BALL_SPEED_X 6.0
+#define DEFAULT_BALL_SPEED_Y 9.0
+#define DEFAULT_COMPUTER_PADDLE_SPEED 30.0
+#define DEFAULT_SCORE_TO_WIN 3
 
 @implementation PongVilleViewController
 
@@ -30,7 +30,8 @@
 @synthesize instructionMessageLabel;
 @synthesize scoreBoardLabel;
 @synthesize puckVelocity;
-@synthesize gameState,motionScale,ballSpeedX,ballSpeedY,computerPaddleSpeed,scoreToWin;
+@synthesize gameState,scoreToWin;
+@synthesize motionScale,ballSpeedX,ballSpeedY,computerPaddleSpeed;
 
 UIDeviceOrientation orientation;
 
@@ -39,14 +40,6 @@ UIDeviceOrientation orientation;
     
     justHitUserPadle = FALSE;
     justHitCompPadle = FALSE;
-    
-    //Initilize settings:
-    gameState = GAME_STATE_PAUSED;
-    motionScale = MOTION_SCALE;
-    ballSpeedX = BALL_SPEED_X;
-    ballSpeedY = BALL_SPEED_Y;
-    computerPaddleSpeed = COMPUTER_PADDLE_SPEED;
-    scoreToWin = SCORE_TO_WIN;
     
     [super loadView];
 }
@@ -492,6 +485,33 @@ UIDeviceOrientation orientation;
     [swipeRightGestureRecognizer release];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    //Initilize settings:
+    self.gameState = GAME_STATE_PAUSED;
+    self.motionScale = 
+        DEFAULT_MOTION_SCALE*[[NSUserDefaults standardUserDefaults] floatForKey:MOTION_SCALE];
+    self.ballSpeedX = 
+        DEFAULT_BALL_SPEED_X*[[NSUserDefaults standardUserDefaults] floatForKey:BALL_SPEED_X];
+    self.ballSpeedY = 
+        DEFAULT_BALL_SPEED_Y*[[NSUserDefaults standardUserDefaults] floatForKey:BALL_SPEED_Y];
+    self.computerPaddleSpeed = 
+        DEFAULT_COMPUTER_PADDLE_SPEED*[[NSUserDefaults standardUserDefaults] floatForKey:COMPUTER_PADDLE_SPEED];;
+    self.scoreToWin = [[NSUserDefaults standardUserDefaults] floatForKey:SCORE_TO_WIN];
+    
+    self.motionScale = 
+        (self.motionScale == 0 ? DEFAULT_MOTION_SCALE : self.motionScale);
+    self.ballSpeedX = 
+        (self.ballSpeedX == 0 ? DEFAULT_BALL_SPEED_X : self.ballSpeedX);
+    self.ballSpeedY = 
+        (self.ballSpeedY == 0 ? DEFAULT_BALL_SPEED_Y : self.ballSpeedY);
+    self.computerPaddleSpeed = 
+        (self.computerPaddleSpeed == 0 ? DEFAULT_COMPUTER_PADDLE_SPEED : self.computerPaddleSpeed);
+    self.scoreToWin = 
+        (self.scoreToWin == 0 ? DEFAULT_SCORE_TO_WIN : self.scoreToWin);
+    
+    [super viewWillAppear:animated];
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     NSLog(@"WAS:PongVilleViewController.m:viewDidAppear:A");
@@ -518,16 +538,6 @@ UIDeviceOrientation orientation;
     // Return YES for supported orientations
     return YES;
 }
-
--(void)settingsViewController:(SettingsViewController *)_settingsViewController 
-      withComputerPaddleSpeed:(NSInteger)_computerPaddleSpeed{
-    NSLog(@"WAS:settingsViewControllerWPS:self.computerPaddleSpeed=%d",self.computerPaddleSpeed);
-    self.computerPaddleSpeed = _computerPaddleSpeed;
-    NSLog(@"WAS:settingsViewControllerWPS:_computerPaddleSpeed=%d",_computerPaddleSpeed);
-    [self dismissModalViewControllerAnimated:YES];
-}
-
-
 
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
     NSLog(@"Rotating!");

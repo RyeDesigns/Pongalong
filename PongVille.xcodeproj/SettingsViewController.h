@@ -9,27 +9,34 @@
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
 
+#define MOTION_SCALE @"motionScale"
+#define BALL_SPEED_X @"ballSpeedX"
+#define BALL_SPEED_Y @"ballSpeedY"
+#define COMPUTER_PADDLE_SPEED @"computerPaddleSpeed"
+#define SCORE_TO_WIN @"scoreToWin"
+
 @protocol SettingsViewControllerDelegate;
 @interface SettingsViewController : UIViewController {
-    IBOutlet NSInteger computerPaddleSpeed;
+    IBOutlet UISlider *motionScaleSlider;
     IBOutlet UISlider *computerPaddleSpeedSlider;
+    IBOutlet UISlider *ballSpeedXSlider;
+    IBOutlet UISlider *ballSpeedYSlider;
+    IBOutlet UISlider *scoreToWin;
     id <SettingsViewControllerDelegate> delegate;
 }
 
-
-@property (assign) NSInteger computerPaddleSpeed;
+@property (assign) IBOutlet UISlider *motionScaleSlider;
 @property (assign) IBOutlet UISlider *computerPaddleSpeedSlider;
+@property (assign) IBOutlet UISlider *ballSpeedXSlider;
+@property (assign) IBOutlet UISlider *ballSpeedYSlider;
+@property (assign) IBOutlet UISlider *scoreToWin;
 @property (assign) id <SettingsViewControllerDelegate> delegate;
 
 -(IBAction)done;
+-(IBAction)motionScaleSliderChanged:(UISlider *)motionScaleSlider;
 -(IBAction)computerPaddleSliderChanged:(UISlider *)computerPaddleSpeedSlider;
-
-@end
-
-@protocol SettingsViewControllerDelegate 
--(void)settingsViewController:(SettingsViewController *)_settingsViewController 
-      withComputerPaddleSpeed:(NSInteger)_computerPaddleSpeed;
-                 
-
+-(IBAction)ballSpeedXSliderChanged:(UISlider *)ballSpeedXSlider;
+-(IBAction)ballSpeedYSliderChanged:(UISlider *)ballSpeedYSlider;
+-(IBAction)scoreToWinChanged:(UISlider *)scoreToWin;
 
 @end
