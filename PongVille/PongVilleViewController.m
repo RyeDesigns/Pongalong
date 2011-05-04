@@ -251,9 +251,7 @@ UIDeviceOrientation orientation;
     NSLog(@"WAS:PongVilleViewController.m:reset:Z");
 }
 
-
-
--(void)performPuckLogic
+-(void)performStandardPuckLogic
 {
     // Calculate the puck center
     puck.center = CGPointMake(puck.center.x + puckVelocity.x, puck.center.y + puckVelocity.y);
@@ -289,6 +287,77 @@ UIDeviceOrientation orientation;
             justHitCompPadle = TRUE;
         }
     }
+}
+
+#define MAX_PERCENTAGE_CHANGE 30
+-(CGFloat)getRandomNumber{
+    // The initial value is what we'll add or subtract from
+    CGFloat initialValue = 100;
+    
+    // Calculate a random number between 0 and twice the max percentage change
+    CGFloat changeValue = arc4random() %(2* MAX_PERCENTAGE_CHANGE);
+    
+    // Then subtract the max percentage change
+    // This essentially gives you a range of -MAX_PERCENTAGE_CHANGE to MAX_PERCENTAGE_CHANGE
+    changeValue -= MAX_PERCENTAGE_CHANGE;
+    
+    // Turn this into a percentage
+    CGFloat returnValue = (initialValue + changeValue) / 100;
+
+    return returnValue;
+}
+
+-(void)performCrazyPuckLogic
+{
+    // Calculate the puck center
+    puck.center = CGPointMake(puck.center.x + puckVelocity.x, puck.center.y + puckVelocity.y);
+    
+    // If the puck has hit a side wall, reverse the puck velocity
+    if(puck.center.x > self.view.bounds.size.width || puck.center.x < 0){
+        puckVelocity.x = -puckVelocity.x;
+        //NSLog(@"WAS:puckVelocity.x=%f",puckVelocity.x);
+        puckVelocity.x *= [self getRandomNumber];
+        [self getRandomNumber];
+        justHitUserPadle = FALSE;
+        justHitCompPadle = FALSE;
+    }
+    
+    // If the puck has hit a wall, reverse the puck velocity
+    if(puck.center.y > self.view.bounds.size.height || puck.center.y < 0){
+        puckVelocity.y = -puckVelocity.y;
+        puckVelocity.y *= [self getRandomNumber];
+        //NSLog(@"WAS:B:arc4random()=%d",arc4random());
+        justHitUserPadle = FALSE;
+        justHitCompPadle = FALSE;
+    }
+    
+    // If the puck has hit the computer paddle, reverse the velocity
+    if(CGRectIntersectsRect(puck.frame,userPaddle.frame) && !justHitUserPadle) {
+        if(puck.center.y < userPaddle.center.y) {
+            puckVelocity.y = -puckVelocity.y;
+            puckVelocity.y *= [self getRandomNumber];
+            //NSLog(@"WAS:C:arc4random()=%d",arc4random());
+            justHitUserPadle = TRUE;
+            justHitCompPadle = FALSE;
+        }
+    }
+    
+    // If the puck has hit the user paddle, reverse the velocity
+    if(CGRectIntersectsRect(puck.frame,computerPaddle.frame) && !justHitCompPadle) {
+        if(puck.center.y > computerPaddle.center.y) {
+            puckVelocity.y = -puckVelocity.y;
+            puckVelocity.y *= [self getRandomNumber];
+            //NSLog(@"WAS:D:arc4random()=%d",arc4random());
+            justHitUserPadle = FALSE;
+            justHitCompPadle = TRUE;
+        }
+    }
+}
+
+-(void)performPuckLogic
+{
+    //[self performStandardPuckLogic];
+    [self performCrazyPuckLogic];
 }
 
 -(void)performSmartAI{
@@ -551,13 +620,6 @@ UIDeviceOrientation orientation;
     [ self changeBackgroundColorToRandomColor];
 }
 
-
-
-
-//-(IBAction)sliderChanged:(id)sender{
-//    UISlider *slider = (UISlider *)sender;
-//    computerPaddleSpeed = (int)((slider.value) * COMPUTER_PADDLE_SPEED);
-//}
 
 
 
