@@ -317,7 +317,6 @@ UIDeviceOrientation orientation;
         puckVelocity.x = -puckVelocity.x;
         //NSLog(@"WAS:puckVelocity.x=%f",puckVelocity.x);
         puckVelocity.x *= [self getRandomNumber];
-        [self getRandomNumber];
         justHitUserPadle = FALSE;
         justHitCompPadle = FALSE;
     }
